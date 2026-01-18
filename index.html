@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пекарна Горан Гоко | Майстори на баничката</title>
+    <meta name="description" content="Пекарна Горан Гоко - най-вкусните банички и закуски в града. Традиционни рецепти, топло изпечени всяка сутрин.">
+    
+    <!-- Google Fonts for Typography: Merriweather & Open Sans (Restored) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & BRANDING --- */
+        :root {
+            /* Colors */
+            --color-bg: #FFFCF8; /* Brand Main Background: Soft warm white */
+            --color-primary: #DA0C0C; /* Brand Accent: Deep Red */
+            --color-primary-dark: #B30000; /* Darker red for interactions */
+            --color-text: #4A3B32; /* Dark coffee/brown for text contrast */
+            --color-text-light: #786C61;
+            --color-white: #FFFFFF; /* Pure white for cards */
+            --color-accent: #8DA399; /* Sage green for secondary badges */
+            --color-soft-bg: #F5EFE6; /* Darker beige for alternating sections */
+            --color-price-bg: #FFF0F0; /* Very light red for price tags */
+            
+            /* Shadows - tinted with primary color for warmth */
+            --shadow-sm: 0 4px 12px rgba(74, 59, 50, 0.06);
+            --shadow-md: 0 8px 24px rgba(74, 59, 50, 0.08);
+            --shadow-hover: 0 12px 32px rgba(218, 12, 12, 0.1);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            
+            /* Spacing */
+            --container-width: 1200px;
+        }
+
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease-in-out;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--radius-md);
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(218, 12, 12, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(218, 12, 12, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-text);
+            border: 2px solid var(--color-soft-bg);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-hero {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        .btn-outline-hero:hover {
+            background-color: var(--color-white);
+            color: var(--color-text);
+            border-color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .section-subtitle {
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: rgba(255, 252, 248, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            padding: 10px 0;
+            transition: padding 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-soft-bg);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .logo:hover img {
+            transform: scale(1.08);
+        }
+
+        .logo span {
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .hamburger:hover {
+            color: var(--color-primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%), url('image_625ced.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--color-white);
+            margin-top: 60px;
+        }
+
+        /* Fallback if image fails to load */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #4A3B32;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn Up 1.2s ease-out; 
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            color: var(--color-white);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .status-badge:hover {
+            transform: translateY(-1px);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .status-dot {
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- FEATURES ICONS --- */
+        .features {
+            background-color: var(--color-bg);
+            padding: 60px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover i {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* --- MENU SECTION --- */
+        .menu-section {
+            background-color: var(--color-bg);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid rgba(74, 59, 50, 0.1);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            color: var(--color-text-light);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .product-card.show {
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(218, 12, 12, 0.15);
+        }
+
+        .product-image {
+            height: 240px;
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease-out;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 2;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.classic { background-color: var(--color-accent); }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .product-price {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 1.05rem;
+            background-color: var(--color-price-bg);
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-info .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            font-size: 0.95rem;
+            border-width: 1px;
+        }
+        
+        .product-info .btn-secondary:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+
+        .product-title span {
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 4px;
+            font-weight: 600;
+            color: var(--color-text-light);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .product-desc span.secondary-text {
+            display: block;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* --- COFFEE SECTION --- */
+        .coffee-section {
+            background-color: var(--color-soft-bg);
+        }
+
+        .coffee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .coffee-card {
+            display: flex;
+            align-items: center;
+            background: var(--color-white);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .coffee-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(218, 12, 12, 0.15);
+        }
+
+        .coffee-icon {
+            width: 54px;
+            height: 54px;
+            background: var(--color-soft-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .coffee-card:hover .coffee-icon {
+            transform: scale(1.1);
+        }
+
+        .coffee-details {
+            flex-grow: 1;
+        }
+
+        .coffee-details h4 {
+            margin-bottom: 4px;
+            font-size: 1.15rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .coffee-price {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.05rem;
+        }
+
+        /* --- DRINKS SECTION (New) --- */
+        .drinks-section {
+            background-color: var(--color-soft-bg);
+        }
+
+        /* Drinks List Styles */
+        .drinks-list-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .drink-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed rgba(74, 59, 50, 0.1);
+            transition: background-color 0.2s;
+        }
+
+        .drink-row:hover {
+            background-color: rgba(255, 252, 248, 0.5);
+        }
+
+        .drink-row:last-child {
+            border-bottom: none;
+        }
+
+        .drink-names {
+            text-align: left;
+        }
+
+        .drink-bg {
+            display: block;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--color-text);
+            font-size: 1.1rem;
+        }
+
+        .drink-en {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 4px;
+        }
+
+        .drink-price {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        /* --- HISTORY/ABOUT SECTION --- */
+        .history-section {
+            background-color: var(--color-bg);
+        }
+
+        .history-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .history-text p {
+            margin-bottom: 20px;
+            color: var(--color-text);
+            font-size: 1.05rem;
+        }
+
+        .history-text .secondary-text {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        .history-image-wrapper {
+            position: relative;
+        }
+        
+        .history-image-wrapper img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.5s ease;
+        }
+        
+        .history-image-wrapper:hover img {
+            transform: scale(1.01);
+        }
+
+        .history-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            transition: transform 0.4s ease;
+        }
+        
+        .history-image-wrapper:hover::after {
+            transform: translate(5px, 5px);
+        }
+
+        /* --- LOCATIONS SECTION --- */
+        .locations-section {
+            background-color: var(--color-soft-bg);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .location-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border-top: 5px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .location-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .location-card:hover .location-icon {
+            transform: scale(1.1);
+        }
+
+        .location-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .location-card address {
+            font-style: normal;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .location-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- CONTACTS SECTION --- */
+        .contacts-section {
+            background-color: var(--color-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--color-soft-bg);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            background: var(--color-white);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-box:hover .contact-icon {
+            transform: scale(1.1);
+            color: var(--color-white);
+            background-color: var(--color-primary);
+        }
+
+        .contact-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-link {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--color-primary);
+        }
+
+        .contact-text {
+            color: var(--color-text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #2c241b; /* Darker, warmer brown for polished look */
+            color: #e5e0dc; /* Warm light gray/beige for text */
+            padding: 80px 0 30px; /* Increased top padding */
+            border-top: 4px solid var(--color-primary); /* Refined brand accent */
+            font-size: 0.95rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        /* Footer Logo specific styles */
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .footer-logo-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--color-primary); /* Accent border */
+            padding: 2px;
+            background-color: #fff;
+            transition: transform 0.4s ease;
+        }
+        
+        .footer-logo:hover .footer-logo-img {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .footer-logo h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer-logo p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-links h4 {
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-family: 'Merriweather', serif;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        /* Subtle separator under headings */
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-primary);
+        }
+
+        .footer-links ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            transition: color 0.3s, transform 0.2s;
+            display: inline-block;
+            color: inherit;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+            transform: translateX(5px);
+        }
+        
+        /* Footer icons colored with accent */
+        .footer-links i {
+            color: var(--color-primary);
+            font-size: 1rem;
+            margin-top: 4px; /* Align icon with text top */
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smoother, more elegant reveal */
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            /* Mobile Hero Improvements */
+            .hero {
+                height: auto; /* Disable fixed height to allow content flow */
+                min-height: 85dvh; /* Dynamic viewport height for better mobile fit */
+                align-items: flex-start; /* Align content to top instead of center */
+                padding-top: 120px; /* visual spacing from header */
+                padding-bottom: 60px; /* space for background to show at bottom */
+                background-attachment: scroll; /* Fix background jitter on mobile */
+                background-position: center top; /* Anchor image to top/center */
+            }
+
+            .hero-content {
+                margin-top: 0; /* Remove extra margins */
+                padding: 0 15px;
+                max-width: 100%;
+            }
+
+            .hero h1 { 
+                font-size: 2.6rem; /* Slightly adjusted for readability */
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+                line-height: 1.5;
+            }
+            
+            .status-badge {
+                margin-bottom: 20px;
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+
+            .nav-links { display: none; } /* Simplified for this demo */
+            
+            /* Mobile Nav Logic would go here (hamburger menu) */
+            .hamburger { display: block; }
+            
+            .history-layout { grid-template-columns: 1fr; }
+            
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+            
+            .btn { width: 100%; }
+            
+            .btn-outline-hero { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <!-- Updated Logo with Image -->
+                <a href="#home" class="logo">
+                    <img src="logo.jpg" alt="Лого Горан Гоко - Пекар с баница">
+                    <div>Горан <span>Гоко</span></div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Начало</a></li>
+                    <li><a href="#coffee">Кафе</a></li>
+                    <li><a href="#menu">Меню</a></li>
+                    <li><a href="#drinks">Напитки</a></li>
+                    <li><a href="#story">История</a></li>
+                    <li><a href="#locations">Локации</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <!-- Desktop Only CTA -->
+                <a href="#locations" class="btn btn-primary" style="display: none; @media(min-width:769px){display:inline-block;}">Намери ни</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="status-badge" id="status-badge">
+                <span class="status-dot" style="background-color: #22c55e;"></span>
+                <span id="status-text">Отворено сме</span>
+            </div>
+            
+            <!-- Headline stays, clear tradition focus -->
+            <h1>Традиция, която ухае на дом</h1>
+            
+            <!-- Subheadline made shorter and punchier -->
+            <p>Ръчно точени кори, истинско сирене и майсторлък.<br class="hidden-mobile">Изпечени топло за теб.</p>
+            
+            <!-- Dual CTAs for better UX -->
+            <div class="hero-buttons">
+                <a href="#locations" class="btn btn-primary">Намери ни наблизо</a>
+                <a href="#menu" class="btn btn-outline-hero">Виж менюто</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item reveal">
+                    <i class="fas fa-wheat"></i>
+                    <h3>Българско брашно</h3>
+                    <p>Работим само с подбрани мелници от региона.</p>
+                </div>
+                <div class="feature-item reveal">
+                    <i class="fas fa-fire-burner"></i>
+                    <h3>Печем на място</h3>
+                    <p>Всяка тава влиза във фурната минути преди да я купите.</p>
+                </div>
+                <div class="feature-item reveal">
+                    <i class="fas fa-heart"></i>
+                    <h3>Семейна рецепта</h3>
+                    <p>Традиция, предавана от три поколения хлебари.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coffee Menu Section (Moved Before Menu) -->
+    <section id="coffee" class="section-padding coffee-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Перфектното допълнение към топла баничка</span>
+                <h2 class="section-title">Кафе и топли напитки</h2>
+                <p style="color: var(--color-text-light); margin-bottom: 20px; font-style: italic;">Налични във всички обекти</p>
+            </div>
+            
+            <div class="coffee-grid">
+                <!-- Item 1 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Espresso (Дълго, Американо)</h4>
+                        <div class="coffee-price">€0.80</div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Espresso с мляко</h4>
+                        <div class="coffee-price">€0.90</div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-mug-saucer"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Cappucinno</h4>
+                        <div class="coffee-price">€1.40</div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Chocolate Cappucino</h4>
+                        <div class="coffee-price">€1.40</div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-fire-flame-simple"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Hot Chocolate</h4>
+                        <div class="coffee-price">€1.10</div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>3в1</h4>
+                        <div class="coffee-price">€0.50</div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-glass-water"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Coffee Latte</h4>
+                        <div class="coffee-price">€1.40</div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Мляко с какао</h4>
+                        <div class="coffee-price">€1.10</div>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="coffee-card reveal">
+                    <div class="coffee-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <div class="coffee-details">
+                        <h4>Кафе на капсула</h4>
+                        <div class="coffee-price">€0.80</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section-padding menu-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Нашите изкушения</span>
+                <h2 class="section-title">Виж какво печем днес</h2>
+                <p style="color: var(--color-text-light); margin-bottom: 20px; font-style: italic;">* Продуктите са налични само на място в пекарните ни.</p>
+            </div>
+
+            <!-- Categories -->
+            <div class="category-tabs reveal">
+                <button class="tab-btn active" onclick="filterMenu('all')">Всички</button>
+                <button class="tab-btn" onclick="filterMenu('banitsa')">Банички</button>
+                <button class="tab-btn" onclick="filterMenu('savory')">Солени</button>
+                <button class="tab-btn" onclick="filterMenu('sweet')">Сладки</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid">
+                <!-- Item 1: Lasagna -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="1.jpg" alt="Lasagna / Лазаня">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Лазаня
+                                <span>Lasagna</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">
+                            Шунка, лютеница и кашкавал<br>
+                            <span class="secondary-text">Ham, lyutenitsa, and yellow cheese</span>
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 2: Panzerotta -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <span class="badge">Най-продавано 🔥</span>
+                        <img src="2.jpg" alt="Panzerotta / Панцерота">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Панцерота
+                                <span>Panzerotta</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">
+                            Шунка, кашкавал, кетчуп и топено сирене<br>
+                            <span class="secondary-text">Ham, yellow cheese, ketchup, and melted cheese</span>
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 3: Lapichka -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="3.jpg" alt="Lapichka / Лапичка">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Лапичка
+                                <span>Lapichka</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">
+                            Шунка, кашкавал и сусам<br>
+                            <span class="secondary-text">Ham, yellow cheese, and sesame</span>
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Cheese Pastry -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="4.jpg" alt="Cheese Pastry / Кашкавалка">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кашкавалка
+                                <span>Cheese Pastry</span>
+                            </h3>
+                            <span class="product-price">€1.30</span>
+                        </div>
+                        <p class="product-desc">
+                            Само кашкавал<br>
+                            <span class="secondary-text">Yellow cheese only</span>
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 5: Chocolate Croissant -->
+                <div class="product-card show" data-category="sweet">
+                    <div class="product-image">
+                        <img src="5.jpg" alt="Chocolate Croissant / Кроасан с шоколад">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с шоколад и пудра захар
+                                <span>Chocolate Croissant with Powdered Sugar</span>
+                            </h3>
+                            <span class="product-price">€1.30</span>
+                        </div>
+                        <!-- Description intentionally left blank as per list -->
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p> 
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 6: Croissant with Jam -->
+                <div class="product-card show" data-category="sweet">
+                    <div class="product-image">
+                        <img src="6.jpg" alt="Croissant with Jam / Кроасан с мармалад">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с мармалад
+                                <span>Croissant with Jam</span>
+                            </h3>
+                            <span class="product-price">€1.30</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 7: Croissant with Cheese -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="7.jpg" alt="Croissant with Cheese / Кроасан със сирене">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан със сирене
+                                <span>Croissant with Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.30</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 8: Croissant with Ham and Cheese -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="8.jpg" alt="Croissant with Ham and Cheese / Кроасан с шунка и кашкавал">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с шунка и кашкавал
+                                <span>Croissant with Ham and Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 9: Croissant with Ham and Melted Cheese -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="9.jpg" alt="Croissant with Ham and Melted Cheese / Кроасан с шунка и топено сирене">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с шунка и топено сирене
+                                <span>Croissant with Ham and Melted Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 10: Croissant with Bacon and Melted Cheese -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <span class="badge">Най-продавано 🔥</span>
+                        <img src="10.jpg" alt="Croissant with Bacon and Melted Cheese / Кроасан с бекон и топено сирене">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с бекон и топено сирене
+                                <span>Croissant with Bacon and Melted Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 11: Sausage Pastry -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <span class="badge">Най-продавано 🔥</span>
+                        <img src="11.jpg" alt="Sausage Pastry / Кренвиршка">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кренвиршка
+                                <span>Sausage Pastry</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 12: Croissant with Vanilla Cream -->
+                <div class="product-card show" data-category="sweet">
+                    <div class="product-image">
+                        <img src="12.jpg" alt="Croissant with Vanilla Cream / Кроасан с бял крем">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Кроасан с бял крем
+                                <span>Croissant with Vanilla Cream</span>
+                            </h3>
+                            <span class="product-price">€1.30</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 13: Banitsa with Cheese -->
+                <div class="product-card show" data-category="banitsa">
+                    <div class="product-image">
+                        <img src="13.jpg" alt="Banitsa with Cheese / Баница със сирене">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Баница със сирене
+                                <span>Banitsa with Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 14: Banitsa with Leek -->
+                <div class="product-card show" data-category="banitsa">
+                    <div class="product-image">
+                        <img src="14.jpg" alt="Banitsa with Leek / Баница с праз">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Баница с праз
+                                <span>Banitsa with Leek</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 15: Rolled Banitsa with Cheese -->
+                <div class="product-card show" data-category="banitsa">
+                    <div class="product-image">
+                        <img src="15.jpg" alt="Rolled Banitsa with Cheese / Вита баница със сирене">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Вита баница със сирене
+                                <span>Rolled Banitsa with Cheese</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 16: Pizza Slice -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="16.jpg" alt="Pizza Slice / Пица на парче">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Пица на парче
+                                <span>Pizza Slice</span>
+                            </h3>
+                            <span class="product-price">€1.80</span>
+                        </div>
+                        <p class="product-desc">&nbsp;<br>&nbsp;</p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 17: Milenka Pastry -->
+                <div class="product-card show" data-category="savory">
+                    <div class="product-image">
+                        <img src="17.jpg" alt="Milenka Pastry / Миленка">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Миленка
+                                <span>Milenka Pastry</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">
+                            Сирене и кашкавал<br>
+                            <span class="secondary-text">Cheese and yellow cheese</span>
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Item 18: Macedonian Burek -->
+                <div class="product-card show" data-category="banitsa">
+                    <div class="product-image">
+                        <img src="18.jpg" alt="Macedonian Burek / Македонски бюрек">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Македонски бюрек
+                                <span>Macedonian Burek</span>
+                            </h3>
+                            <span class="product-price">€1.50</span>
+                        </div>
+                        <p class="product-desc">
+                            &nbsp;<br>&nbsp;
+                        </p>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Drinks Section (New) -->
+    <section id="drinks" class="section-padding drinks-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Освежаващи напитки <span style="display:block; font-size: 0.7em; opacity: 0.7; margin-top: 2px;">Refreshing Drinks</span></span>
+                <h2 class="section-title">Студени напитки <span style="display:block; font-size: 0.5em; line-height: 1.4; opacity: 0.7; font-weight: 400; margin-top: 5px;">Cold Drinks</span></h2>
+            </div>
+
+            <!-- Photo Drinks Grid (Boza) -->
+            <div class="menu-grid" style="margin-bottom: 50px;">
+                <!-- Boza Small -->
+                <div class="product-card show">
+                    <div class="product-image">
+                        <img src="bozasmall.jpg" alt="Malka Boza / Малка боза">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Малка боза
+                                <span>Small Boza</span>
+                            </h3>
+                            <span class="product-price">€0.55</span>
+                        </div>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+
+                <!-- Boza Big -->
+                <div class="product-card show">
+                    <div class="product-image">
+                        <img src="bozabig.jpg" alt="Sredna Boza / Средна боза">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h3 class="product-title">
+                                Средна боза
+                                <span>Medium Boza</span>
+                            </h3>
+                            <span class="product-price">€1.00</span>
+                        </div>
+                        <a href="#locations" class="btn btn-secondary">Ела да опиташ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text List for other drinks -->
+            <div class="drinks-list-container reveal">
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">ДПЗ – Мляко</span>
+                        <span class="drink-en">Milk drink</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Айрян 0.330</span>
+                        <span class="drink-en">Ayran 0.330</span>
+                    </div>
+                    <div class="drink-price">€0.90</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Айрян 0.500</span>
+                        <span class="drink-en">Ayran 0.500</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Студен чай</span>
+                        <span class="drink-en">Iced tea</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Кока Кола 0.500</span>
+                        <span class="drink-en">Coca-Cola 0.500</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Кока Кола кен 0.330</span>
+                        <span class="drink-en">Coca-Cola can 0.330</span>
+                    </div>
+                    <div class="drink-price">€1.10</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Ред Бул</span>
+                        <span class="drink-en">Red Bull</span>
+                    </div>
+                    <div class="drink-price">€1.50</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Вода 0.500</span>
+                        <span class="drink-en">Water 0.500</span>
+                    </div>
+                    <div class="drink-price">€0.60</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Вода 1.500</span>
+                        <span class="drink-en">Water 1.500</span>
+                    </div>
+                    <div class="drink-price">€0.80</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Cappy</span>
+                        <span class="drink-en">Cappy</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+
+                <div class="drink-row">
+                    <div class="drink-names">
+                        <span class="drink-bg">Queens</span>
+                        <span class="drink-en">Queens</span>
+                    </div>
+                    <div class="drink-price">€1.30</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History / Story Section -->
+    <section id="story" class="section-padding history-section">
+        <div class="container">
+            <div class="history-layout">
+                <div class="history-image-wrapper reveal">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=800" alt="Майстор пекар">
+                </div>
+                <div class="history-text reveal">
+                    <span class="section-subtitle">
+                        За нас
+                        <span style="display:block; font-size: 0.7em; opacity: 0.7; margin-top: 2px;">About Us</span>
+                    </span>
+                    <h2 class="section-title">
+                        Майсторство и традиция
+                        <span style="display:block; font-size: 0.5em; line-height: 1.4; opacity: 0.7; font-weight: 400; margin-top: 5px;">Craftsmanship and Tradition</span>
+                    </h2>
+                    <p>
+                        В Пекарна „Горан Гоко“ пазим вкуса на истинската храна. Използваме традиционни рецепти, качествено брашно и сирене, и печем всичко на място всяка сутрин, за да ви посрещнем с топлина.
+                        <span class="secondary-text">
+                            At Bakery "Goran Goko" we preserve the taste of real food. We use traditional recipes, quality flour and cheese, and bake everything on-site every morning to welcome you with warmth.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="section-padding locations-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Къде да ни намерите</span>
+                <h2 class="section-title">Най-близката топла закуска</h2>
+                <p style="margin-top: 10px; color: var(--color-text-light); font-style: italic;">За актуален адрес и работно време – виж в Google Maps</p>
+            </div>
+            <div class="locations-grid" style="margin-top: 50px;">
+                <!-- Location 1 -->
+                <div class="location-card reveal">
+                    <i class="fas fa-store location-icon"></i>
+                    <h3>ГОРАН ГОКО</h3>
+                    <p style="margin-bottom: 10px; color: #777;">Tsentar, ul. "Svoboda" 4-12, 2800 Sandanski</p>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Работно време: виж в Google Maps</p>
+                    <div class="location-actions">
+                        <a href="https://share.google/DBDMJYbYVk3C4g4Gy" target="_blank" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Отвори в Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="location-card reveal">
+                    <i class="fas fa-shop location-icon"></i>
+                    <h3>ГОРАН ГОКО</h3>
+                    <p style="margin-bottom: 10px; color: #777;">Studentski Kompleks, ulitsa "Akademik Stefan Mladenov" 9, 1700 Sofia</p>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Работно време: виж в Google Maps</p>
+                    <div class="location-actions">
+                        <a href="https://share.google/I06cvzvljelqeHDzt" target="_blank" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Отвори в Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="location-card reveal">
+                    <i class="fas fa-bread-slice location-icon"></i>
+                    <h3>ГОРАН ГОКО</h3>
+                    <p style="margin-bottom: 10px; color: #777;">Blagoevgrad Center, ul. "James Baucher" 17, 2700 Blagoevgrad</p>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Работно време: виж в Google Maps</p>
+                    <div class="location-actions">
+                        <a href="https://share.google/iwyYhVXjVXIxjIbj9" target="_blank" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Отвори в Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="section-padding contacts-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Свържете се с нас</span>
+                <h2 class="section-title">Контакти</h2>
+                <p style="margin-top: 10px; color: var(--color-text-light);">Имате въпроси или искате да поръчате нещо специално? Ние сме тук.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Phone -->
+                <div class="contact-box reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Телефон</h3>
+                    <a href="tel:+359893294822" class="contact-link">+359 893 294 822</a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-box reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Имейл</h3>
+                    <a href="mailto:nikola-hristijan-ango@abv.bg" class="contact-link">nikola-hristijan-ango@abv.bg</a>
+                </div>
+
+                <!-- Address -->
+                <div class="contact-box reveal">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Адрес</h3>
+                    <p class="contact-text">гр. Сандански, ул. "Свобода" №4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <!-- Footer Logo Added Here -->
+                    <img src="logo.jpg" alt="Лого на пекарната - илюстрация" class="footer-logo-img">
+                    <h2>ГОРАН ГОКО</h2>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Истинската българска закуска от 1998 г.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Бързи връзки</h4>
+                    <ul>
+                        <li><a href="#home">Начало</a></li>
+                        <li><a href="#menu">Меню</a></li>
+                        <li><a href="#story">За нас</a></li>
+                        <li><a href="#contacts">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакти</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>гр. Сандански, ул. "Свобода" №4</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <!-- Updated Working Hours to match typical bakery times and JS logic -->
+                            <span>Пон - Пет: 06:00 - 17:00<br>Съб: 06:00 - 14:00<br>Нед: Почивен ден</span>
+                        </li>
+                        <li>
+                            <a href="mailto:nikola-hristijan-ango@abv.bg">
+                                <i class="fas fa-envelope"></i> nikola-hristijan-ango@abv.bg
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+359893294822">
+                                <i class="fas fa-phone"></i> +359 893 294 822
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Пекарна ГОРАН ГОКО. Всички права запазени.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 1. Menu Filtering
+        function filterMenu(category) {
+            // Update active button state
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/Hide items
+            const items = document.querySelectorAll('.product-card');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    // Trigger animation restart
+                    item.style.animation = 'none';
+                    item.offsetHeight; /* trigger reflow */
+                    item.style.animation = 'fadeIn 0.5s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 2. Open/Close Logic (Simple Time Check)
+        function checkOpenStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const day = now.getDay(); // 0 is Sunday
+
+            let isOpen = false;
+
+            if (day === 0) {
+                // Sunday
+                isOpen = false;
+            } else if (day === 6) {
+                // Saturday: 06:00 - 14:00
+                isOpen = hour >= 6 && hour < 14;
+            } else {
+                // Mon - Fri: 06:00 - 17:00
+                isOpen = hour >= 6 && hour < 17;
+            }
+
+            const statusText = document.getElementById('status-text');
+            const statusDot = document.querySelector('.status-dot');
+            
+            if (isOpen) {
+                statusText.innerText = "Отворени сме – заповядай!";
+                statusDot.style.backgroundColor = "#22c55e"; // Green
+            } else {
+                statusText.innerText = "Почиваме си (Отваряме в 06:00)";
+                statusDot.style.backgroundColor = "#ef4444"; // Red
+            }
+        }
+
+        // 3. Reveal Animations on Scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        // 4. Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement){
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+                
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                if(window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+
+        // 5. Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = '#FDFBF7';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Initialize
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', () => {
+            checkOpenStatus();
+            revealOnScroll();
+        });
+
+    </script>
+</body>
+</html>
